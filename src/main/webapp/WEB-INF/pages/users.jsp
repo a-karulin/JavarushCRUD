@@ -16,8 +16,9 @@
 <body>
 <a href="../../index.jsp">Back to main menu</a>
 
+
 <br/>
-<br/>
+
 <h1>User List</h1>
 
 <c:if test="${!empty listUsers}">

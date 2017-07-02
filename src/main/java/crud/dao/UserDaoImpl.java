@@ -1,8 +1,10 @@
 package crud.dao;
 
 import crud.model.User;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,5 +63,14 @@ public class UserDaoImpl implements UserDao{
             logger.info("User list: "+ user);
         }
         return userList;
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<User> searchUsers(String name) {
+        Session session = sessionFactory.getCurrentSession();
+        Criteria criteria = session.createCriteria(User.class);
+        if(name!=null&&!name.isEmpty()) criteria.add(Restrictions.like("name", name));
+        return criteria.list();
     }
 }

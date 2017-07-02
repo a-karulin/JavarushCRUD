@@ -13,4 +13,5 @@ public interface UserService {
     public void removeUser(int id);
     public User getUserById(int id);
     public List<User> listUsers();
+    List<User> searchUsers(String name);
 }

@@ -13,6 +13,26 @@
   <body>
   <br/>
   <a href="/users" target="_blank">Users list</a>
+
   <br/>
+  <br>
+  <form method="get" action="/search" target="_self" id="searchForm"/>
+  <br>
+  <br>
+  <h3>Search form:</h3>
+  <table>
+    <tr>
+      <td>
+        <input name="name" form="searchForm" placeholder="User name">
+        <input name="page" form="searchForm" hidden value="0"/>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <input type=submit form="searchForm" value="Search">
+      </td>
+    </tr>
+  </table>
   </body>
 </html>
